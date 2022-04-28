@@ -1,5 +1,8 @@
 # segithub
 Technology Used
+<ul>
+  <li>Kotlin</li>
+</ul>
 
 # List Dark Mode
 <p align="center">
