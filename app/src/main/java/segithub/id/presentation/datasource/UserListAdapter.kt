@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
-
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -25,6 +23,7 @@ class UserListAdapter(private val listener: UserListListener): PagedListAdapter<
 
     interface UserListListener {
         fun onItemClick(githubUser: GithubUser)
+        fun onUrlClick(githubUser: GithubUser)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -52,6 +51,9 @@ class UserListAdapter(private val listener: UserListListener): PagedListAdapter<
 
             holder.userItem.setOnClickListener {
                 listener.onItemClick(item)
+            }
+            holder.txtUserUrl.setOnClickListener {
+                listener.onUrlClick(item)
             }
         }
 

@@ -25,7 +25,6 @@ class UserListViewModel(private val userListDataSourceFactory: UserListDataSourc
     val totalCount: ObservableField<Long> = ObservableField()
     val currentPage: ObservableField<Int> = ObservableField()
     val dataUser: MutableLiveData<GithubUser> = MutableLiveData()
-    lateinit var listUser: LiveData<PagedList<GithubUser>>
 
     init {
         currentPage.set(1)

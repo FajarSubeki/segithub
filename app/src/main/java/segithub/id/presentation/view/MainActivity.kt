@@ -1,12 +1,14 @@
 package segithub.id.presentation.view
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,12 +16,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.facebook.shimmer.ShimmerFrameLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import segithub.id.R
-import segithub.id.data.base.BaseState
-import segithub.id.data.base.BaseStatus
 import segithub.id.data.model.GithubUser
 import segithub.id.databinding.ActivityMainBinding
 import segithub.id.presentation.datasource.UserListAdapter
 import segithub.id.presentation.viewmodel.UserListViewModel
+
 
 class MainActivity : AppCompatActivity(), UserListAdapter.UserListListener {
 
@@ -71,9 +72,10 @@ class MainActivity : AppCompatActivity(), UserListAdapter.UserListListener {
                     else -> {
                         val currentPage = usersListViewModel.currentPage.get()
                         usersListViewModel.isWaiting.set(false)
+                        usersListViewModel.errorMessage.set(getString(R.string.msg_fetch_users_list_has_error))
                         if (currentPage == 1){
-                            shimmerView.visibility = View.VISIBLE
-                            errorLayout.visibility = View.GONE
+                            shimmerView.visibility = View.GONE
+                            errorLayout.visibility = View.VISIBLE
                         }else{
                             errorLayout.visibility = View.VISIBLE
                             shimmerView.visibility = View.GONE
@@ -111,5 +113,17 @@ class MainActivity : AppCompatActivity(), UserListAdapter.UserListListener {
 
     override fun onItemClick(githubUser: GithubUser) {
         usersListViewModel.getUserInfoByUsername(githubUser.login)
+    }
+
+    override fun onUrlClick(githubUser: GithubUser) {
+        val url = githubUser.htmlUrl
+        if (!TextUtils.isEmpty(url)){
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }else{
+            Toast.makeText(this, "Url repository not found...", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

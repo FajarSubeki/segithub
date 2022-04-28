@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Segithub</string>
     <string name="msg_fetch_users_list_has_error">Opps, Something Went Wrong!</string>
+    <string name="str_username">Fajar Subeki</string>
+    <string name="str_github_url">https://github.com/FajarSubeki</string>
+    <string name="str_github_id"># 31</string>
 </resources>

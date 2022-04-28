@@ -59,7 +59,7 @@ fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpC
             val requestBuilder = chain.request().newBuilder()
             requestBuilder.addHeader(
                 "Authorization",
-                Credentials.basic("fajarsubeki06", "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")
+                Credentials.basic("FajarSubeki", "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")
             )
             chain.proceed(requestBuilder.build())
         }

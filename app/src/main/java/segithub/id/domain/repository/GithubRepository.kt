@@ -16,20 +16,7 @@ class GithubRepository(private val api: GithubApi): GithubApiClient {
             if (response.isSuccessful){
                 BaseState.success(response.body())
             }else{
-                when {
-                    response.code() == 401 -> {
-                        BaseState.error(401, response.message())
-                    }
-                    response.code() == 403 -> {
-                        BaseState.error(403, response.message())
-                    }
-                    response.code() == 404 -> {
-                        BaseState.error(404, response.message())
-                    }
-                    else -> {
-                        BaseState.error(500, response.message())
-                    }
-                }
+                BaseState.error(response.code(), response.message())
             }
         }catch (ex: Throwable){
             BaseState.error(0,"${ex.message}")
@@ -42,20 +29,7 @@ class GithubRepository(private val api: GithubApi): GithubApiClient {
             if (response.isSuccessful) {
                 BaseState.success(response.body())
             } else {
-                when {
-                    response.code() == 401 -> {
-                        BaseState.error(401, response.message())
-                    }
-                    response.code() == 403 -> {
-                        BaseState.error(403, response.message())
-                    }
-                    response.code() == 404 -> {
-                        BaseState.error(404, response.message())
-                    }
-                    else -> {
-                        BaseState.error(500, response.message())
-                    }
-                }
+                BaseState.error(response.code(), response.message())
             }
         } catch (ex: Throwable) {
             BaseState.error(0, "${ex.message}")

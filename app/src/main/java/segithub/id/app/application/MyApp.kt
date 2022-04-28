@@ -1,9 +1,9 @@
 package segithub.id.app.application
 
 import android.app.Application
-import org.koin.core.context.startKoin
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 import segithub.id.BuildConfig
 import segithub.id.app.module.githubApiClientModule
 import segithub.id.app.module.githubApiModule
