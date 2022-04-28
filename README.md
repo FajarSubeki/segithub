@@ -3,7 +3,7 @@ Technology Used
 
 # List Dark Mode
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/33746018/165694601-fd2ab964-c17c-48d5-a777-1375edd695b9.jpeg" align="middle" width="350" height="550" />
+  <img src="https://user-images.githubusercontent.com/33746018/165694601-fd2ab964-c17c-48d5-a777-1375edd695b9.jpeg" align="middle" width="350" height=700" />
 </p>
 ![error](https://user-images.githubusercontent.com/33746018/165694615-3bab9198-64d0-41c2-b4b0-86bca07442c0.jpeg)
 ![light_list](https://user-images.githubusercontent.com/33746018/165694623-8cddfe83-4bf8-4d70-95d2-5aac01f9346b.jpeg)
