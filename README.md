@@ -2,6 +2,12 @@
 Technology Used
 <ul>
   <li>Kotlin</li>
+  <li>Dependency Injection - Koin</li>
+  <li>Archicture - MVVM</li>
+  <li>Unit Testing - Mockito</li>
+  <li>Retrofit</li>
+  <li>Kotlin - Coroutines</li>
+  <li>Pagination</li>
 </ul>
 
 # List Dark Mode
